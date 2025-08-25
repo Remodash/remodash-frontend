@@ -27,15 +27,15 @@ export default function Sidebar() {
     <div className="w-64 h-screen bg-accent text-background p-4 flex flex-col">
       <div className="mb-8 p-4 border-b border-background/20">
         <h1 className="text-xl font-bold">Remodash</h1>
-        <p className="text-sm">Gestion des EDL</p>
+        <p className="text-sm">Remise en Etat des Logements</p>
       </div>
       <nav className="flex-1">
         <ul className="space-y-2">
           <li>
             <Link 
-              href="/ga/dashboard" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/dashboard") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/dashboard")}
+              href="/dashboard/ga" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/dashboard/ga") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("8")}
             >
               <Home size={18} />
               Dashboard
@@ -43,9 +43,9 @@ export default function Sidebar() {
           </li>
           <li>
             <Link 
-              href="/ga/edl-entrant" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/edl-entrant") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/edl-entrant")}
+              href="/pages/ga/edl-entrant" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/pages/ga/edl-entrant") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("/pages/ga/edl-entrant")}
             >
               <ClipboardList size={18} />
               EDL entrant
@@ -53,9 +53,9 @@ export default function Sidebar() {
           </li>
           <li>
             <Link 
-              href="/ga/pre-edl" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/pre-edl") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/pre-edl")}
+              href="/pages/ga/pre-edl" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/pages/ga/pre-edl") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("/pages/ga/pre-edl")}
             >
               <FileText size={18} />
               Pre-EDL
@@ -63,9 +63,9 @@ export default function Sidebar() {
           </li>
           <li>
             <Link 
-              href="/ga/edl-sortant" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/edl-sortant") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/edl-sortant")}
+              href="/pages/ga/edl-sortant" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/pages/ga/edl-sortant") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("/pages/ga/edl-sortant")}
             >
               <ClipboardCheck size={18} />
               EDL sortant
@@ -73,9 +73,9 @@ export default function Sidebar() {
           </li>
           <li>
             <Link 
-              href="/ga/travaux" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/travaux") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/travaux")}
+              href="/pages/ga/travaux" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/pages/ga/travaux") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("/pages/ga/travaux")}
             >
               <Construction size={18} />
               Travaux
@@ -83,9 +83,9 @@ export default function Sidebar() {
           </li>
           <li>
             <Link 
-              href="/ga/parametres" 
-              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/ga/parametres") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
-              onClick={() => handleItemClick("/ga/parametres")}
+              href="/pages/ga/parametres" 
+              className={`flex items-center gap-3 p-3 rounded transition-colors ${isActive("/pages/ga/parametres") ? "bg-background/20 font-medium" : "hover:bg-background/10"}`}
+              onClick={() => handleItemClick("/pages/ga/parametres")}
             >
               <Settings size={18} />
               Paramètres
@@ -94,7 +94,7 @@ export default function Sidebar() {
         </ul>
       </nav>
       <div className="p-4 text-sm text-background/70">
-        © 2025 Remodash
+        © 2025 Remodash - by Nyamsi Ruben
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
+// app/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import ConditionalLayout from "@/components/ConditionalLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gestion des EDL - Logial-COOP",
-  description: "Application de gestion des états des lieux",
+  title: "Remise en Etat des Logements",
+  description: "Application de Remise en Etat des Logements et rénovations",
 };
 
 export default function RootLayout({
@@ -25,11 +26,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex`}>
-        <Sidebar />
-        <main className="flex-1 p-8">
-          {children}
-        </main>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ConditionalLayout>{children}</ConditionalLayout>
       </body>
     </html>
   );

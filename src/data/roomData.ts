@@ -1,2 +1,0 @@
-export const rooms = ['Cuisine', 'Salle de bain', 'WC', 'Chambre 1', 'Chambre 2', 'Salle de séjour', 'Entrée', 'Loggia'];
-export const roomStates = ['Bon état', 'Usure normale', 'À réparer', 'À remplacer'];
