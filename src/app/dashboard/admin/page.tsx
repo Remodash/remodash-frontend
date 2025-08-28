@@ -14,8 +14,10 @@ import {
   ChevronsLeft,
   ChevronsRight,
   User,
-  Shield
+  Shield,
+  Home
 } from 'lucide-react';
+import Link from 'next/link';
 
 type UserRole = 'admin' | 'ga' | 'gl' | 'gt' | 'pd' | 'pt' | 'ra' | 'sc' | 'sco';
 
@@ -201,12 +203,17 @@ const AdminUsersPage = () => {
 
   return (
     <main className="flex-1 p-4 md:p-6 overflow-y-auto bg-gray-50 dark:bg-neutral-900">
-      {/* Header */}
+      {/* Header avec navigation vers les dashboards */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-neutral-200 flex items-center">
-          <Shield className="h-6 w-6 mr-2 md:h-8 md:w-8 md:mr-3" />
-          Administration des Utilisateurs
-        </h1>
+        <div className="flex items-center">
+          <Link href="/dashboard/admin" className="mr-3 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
+            <Home className="h-6 w-6" />
+          </Link>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-neutral-200 flex items-center">
+            <Shield className="h-6 w-6 mr-2 md:h-8 md:w-8 md:mr-3" />
+            Administration des Utilisateurs
+          </h1>
+        </div>
         
         <div className="w-full md:w-auto flex flex-col-reverse sm:flex-row gap-3 items-stretch sm:items-center">
           <div className="relative flex-grow">
@@ -227,6 +234,28 @@ const AdminUsersPage = () => {
             Nouvel utilisateur
           </button>
         </div>
+      </div>
+
+      {/* Navigation vers les autres dashboards */}
+      <div className="mb-6 flex flex-wrap gap-2">
+        <Link 
+          href="/dashboard/ga" 
+          className="px-3 py-1.5 bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-lg text-sm font-medium hover:bg-green-200 dark:hover:bg-green-800 transition-colors"
+        >
+          Dashboard Gardien
+        </Link>
+        <Link 
+          href="/dashboard/gl" 
+          className="px-3 py-1.5 bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-lg text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors"
+        >
+          Dashboard Gestionnaire Locative
+        </Link>
+        <Link 
+          href="/dashboard/gt" 
+          className="px-3 py-1.5 bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200 rounded-lg text-sm font-medium hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors"
+        >
+          Dashboard Gestionnaire Technique
+        </Link>
       </div>
 
       {/* Navigation Tabs */}
@@ -622,5 +651,3 @@ const AdminUsersPage = () => {
 };
 
 export default AdminUsersPage;
-
-

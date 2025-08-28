@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect} from 'react';
 import Image from 'next/image';
 import { 
   Plus,
@@ -110,7 +110,7 @@ const TravauxPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  //const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Couleurs harmonisées
   const colors = {
@@ -1475,7 +1475,7 @@ const TravauxPage = () => {
                     
                     <div className="mt-6">
                       <button className="flex items-center justify-center w-full py-3 border-2 border-dashed border-gray-300 dark:border-neutral-600 rounded-lg text-gray-500 dark:text-neutral-400 hover:text-gray-700 dark:hover:text-neutral-300 hover:border-gray-400 dark:hover:border-neutral-500 transition-colors">
-                        <Plus className="w-5 w-5 mr-2" />
+                        <Plus className="w-5  mr-2" />
                         Ajouter des photos
                       </button>
                     </div>

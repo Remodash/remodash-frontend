@@ -5,8 +5,6 @@ import { Eye, EyeOff, Mail, Lock} from 'lucide-react';
 import Image from 'next/image';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '@/services/api';
-import type { AxiosError } from 'axios';
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -21,25 +19,24 @@ export default function LoginPage() {
     e.preventDefault();
     setIsLoading(true);
     setError('');
-    try {
-      const res = await loginUser(email, password);
-      const data = res.data;
+    
+    // Validation des identifiants
+    if (email !== 'admin@remodash.pro' || password !== 'Admin@123!*') {
+      setError('Identifiants incorrects');
+      setIsLoading(false);
+      return;
+    }
+    
+    // Simulation de connexion pendant 5 secondes
+    setTimeout(() => {
       // Stocker le token si besoin (localStorage, cookie...)
       if (rememberMe) {
-        localStorage.setItem('remodash_token', data.token);
+        localStorage.setItem('remodash_token', 'simulated_token');
       }
-      // Redirection selon le rôle
-      router.push(data.redirectUrl || '/dashboard');
-    } catch (err) {
-      const axiosError = err as AxiosError<{ error: string }>;
-      if (axiosError.response && axiosError.response.data && axiosError.response.data.error) {
-        setError(axiosError.response.data.error);
-      } else {
-        setError('Erreur réseau ou serveur');
-      }
-    } finally {
-      setIsLoading(false);
-    }
+      
+      // Redirection vers le dashboard admin
+      router.push('/dashboard/admin');
+    }, 5000);
   };
 
   return (
@@ -60,6 +57,8 @@ export default function LoginPage() {
         <div className="absolute bottom-10 left-10 text-background max-w-md">
           <h2 className="text-2xl font-bold mb-2">Bienvenue sur Remodash</h2>
           <p className="text-base">Votre plateforme de gestion immobilière tout-en-un</p>
+          <h4 className="text-2xl font-bold mb-2">by NYAMSI LAWO Ruben</h4>
+          
         </div>
       </div>
 
@@ -67,9 +66,6 @@ export default function LoginPage() {
       <div className="w-full md:w-1/4 bg-accent flex items-center justify-center p-5">
         <div className="w-full max-w-xs">
           {/* En-tête avec Logo */}
-          <div className="text-center mb-6">
-            {/* Logo */}
-          
           <div className="text-center mb-6">
             {/* Logo SVG personnalisé */}
             <div className="flex justify-center mb-3">
@@ -81,8 +77,6 @@ export default function LoginPage() {
             </div>
             <h1 className="text-xl font-semibold text-background mb-1">Remodash</h1>
             <p className="text-xs text-background/80">Connectez-vous à votre espace</p>
-          </div>
-            
           </div>
 
           {/* Formulaire */}
